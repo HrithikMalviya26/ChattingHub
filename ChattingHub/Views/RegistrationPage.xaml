@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChattingHub.Views.RegistrationPage"
+             BackgroundColor="#F0F0F0">
+
+    <StackLayout Padding="20" VerticalOptions="Center" Spacing="20">
+
+        <!-- Header -->
+        <Label Text="Create Your Account"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#333" />
+
+        <!-- Username Entry -->
+        <Frame BackgroundColor="White"
+               CornerRadius="10"
+               HasShadow="True"
+               Padding="0" WidthRequest="400"
+               HeightRequest="50"
+               HorizontalOptions="Center">
+            <Entry x:Name="UsernameEntry"
+                   Placeholder="Username"
+                   BackgroundColor="Transparent"
+                   FontSize="16"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Margin="10,0" />
+        </Frame>
+
+        <!-- Password Entry -->
+        <Frame BackgroundColor="White"
+               CornerRadius="10"
+               HasShadow="True"
+               Padding="0"
+               HeightRequest="50" WidthRequest="400"
+               HorizontalOptions="Center">
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Password"
+                   IsPassword="True"
+                   BackgroundColor="Transparent"
+                   FontSize="16"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Margin="10,0" />
+        </Frame>
+
+        <!-- Register Button -->
+        <Button Text="Register"
+                Clicked="OnRegisterClicked"
+                BackgroundColor="#0078D4"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                FontSize="18" WidthRequest="400"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+    </StackLayout>
+</ContentPage>

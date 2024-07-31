@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChattingHub.Views.ContactsPage"
+             Title="Select Contact"
+             BackgroundColor="#F0F0F0">
+
+    <StackLayout Padding="10">
+        <!-- Header -->
+        <Label Text="Contacts"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,10"
+               TextColor="#0078D4" />
+
+        <!-- ListView -->
+        <ListView ItemsSource="{Binding Users}"
+                  ItemSelected="OnUserSelected"
+                  BackgroundColor="White"
+                  SeparatorColor="#E0E0E0"
+                  HasUnevenRows="True"
+                  
+                  Margin="0,5">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="White"
+                               CornerRadius="10"
+                               HasShadow="True"
+                               Padding="10"
+                               Margin="0,5">
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="15"
+                                         VerticalOptions="Center">
+                                <!-- Placeholder for user image -->
+                                <BoxView Color="#B0BEC5"
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        CornerRadius="25"
+                                        VerticalOptions="Center" />
+                                <Label Text="{Binding Username}"
+                                       FontSize="18"
+                                       VerticalOptions="Center"
+                                       TextColor="#333" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

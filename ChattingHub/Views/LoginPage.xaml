@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChattingHub.Views.LoginPage"
+             BackgroundColor="#F0F0F0">
+
+    <StackLayout Padding="10,20" VerticalOptions="Center" Spacing="20">
+
+        <!-- Header -->
+        <Label Text="Welcome Back!"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#0078D4" />
+
+        <Label Text=" WinLancer" FontSize="20"
+              FontAttributes="Bold"
+              HorizontalOptions="Center" FontFamily="Roboto"/>
+
+        <!-- Container for Entries and Button -->
+        <Frame BackgroundColor="White"
+               CornerRadius="10"
+               HasShadow="True"
+               Padding="0"
+               HorizontalOptions="Center" WidthRequest="400"
+               Margin="0">
+            <StackLayout Spacing="20" Padding="10">
+                <!-- Username Entry -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0"
+                       HeightRequest="50"
+                       HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="UsernameEntry"
+                           Placeholder="Username"
+                           Text="{Binding Username}"
+                           BackgroundColor="Transparent"
+                           FontSize="16"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           Margin="10,0" />
+                </Frame>
+
+                <!-- Password Entry -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0"
+                       HeightRequest="50"
+                       HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           Text="{Binding Password}"
+                           BackgroundColor="Transparent"
+                           FontSize="16"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           Margin="10,0" />
+                </Frame>
+
+                <!-- Login Button -->
+                <Button Text="Login"
+                        Command="{Binding LoginCommand}"
+                        BackgroundColor="#0078D4"
+                        TextColor="White"
+                        CornerRadius="0"
+                        HeightRequest="50"
+                        FontSize="16"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Register Button -->
+        <Button Text="Register"
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="#B3E5FC"
+                TextColor="#0078D4"
+                CornerRadius="25"
+                HeightRequest="50"
+                FontSize="18"
+                VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400" />
+
+    </StackLayout>
+</ContentPage>

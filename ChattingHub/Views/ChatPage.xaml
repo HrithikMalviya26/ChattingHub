@@ -1,0 +1,66 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ChattingHub.ViewModels"
+             xmlns:local="clr-namespace:ChattingHub.Converters"
+             x:Class="ChattingHub.Views.ChatPage"
+             Title="Chat">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Boolean to LayoutOptions Converter -->
+            <local:BooleanToLayoutOptionsConverter x:Key="BooleanToLayoutOptionsConverter" />
+
+            <!-- Boolean to Color Converter -->
+            <local:BooleanToColorConverter x:Key="BooleanToColorConverter" />
+
+            <!-- Message Template for CollectionView -->
+            <DataTemplate x:Key="MessageTemplate">
+                <ContentView>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="10"
+                                 HorizontalOptions="{Binding IsCurrentUser, Converter={StaticResource BooleanToLayoutOptionsConverter}}">
+                        <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="{Binding IsCurrentUser, Converter={StaticResource BooleanToLayoutOptionsConverter}}">
+                            <Frame CornerRadius="10"
+                                   Padding="10"
+                                   BackgroundColor="{Binding IsCurrentUser, Converter={StaticResource BooleanToColorConverter}}"
+                                   HasShadow="False"
+                                   WidthRequest="250">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Text}"
+                                           TextColor="White" />
+                                    <Label Text="{Binding Timestamp, StringFormat='{0:hh:mm tt}'}"
+                                           FontSize="10"
+                                           TextColor="LightGray" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <!-- CollectionView for messages -->
+        <CollectionView ItemsSource="{Binding Messages}"
+                        ItemTemplate="{StaticResource MessageTemplate}"
+                        SelectionMode="None"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="Transparent">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+
+        <!-- Message entry -->
+        <Entry Text="{Binding NewMessage}"
+               Placeholder="Type your message"
+               Margin="10" />
+
+        <!-- Send button -->
+        <Button Text="Send"
+                Command="{Binding SendMessageCommand}"
+                Margin="10" />
+    </StackLayout>
+</ContentPage>
